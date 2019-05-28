@@ -1,14 +1,5 @@
 
 
-// import React from 'react';
-
-// const Counter = () => {
-//     return (
-//         <div className='counter-container'>Licznik</div>
-//     )
-// };
-
-// export default Counter;
 
 // konstruktor applkacji
 
@@ -24,20 +15,17 @@ class Counter extends Component{
         this.state = {
           counterValue: 0,
           value: '',
+          stepValue: 1
         }
     };
 
-// this.updateStep = this.updateStep.bind(this);
 
-    updateStep = () => {
 
-    let step = this._inputStep.value;
+    updateStep = (value) => {
 
-    this.setState((prevState)=>{
-        return({
-            counterValue: prevState.counterValue + step
-        })
-    })
+   
+    this.setState({stepValue:value})
+   
 
 
     }
@@ -45,7 +33,7 @@ class Counter extends Component{
     changeValue = (props) =>{
         this.setState((prevState)=>{
             return({
-                counterValue: prevState.counterValue + 1 //+ props.initialValue ///jak potrzebujemy poprzednia wartosc to wywolujemy funkcje(return i td)
+                counterValue: prevState.counterValue + this.state.stepValue //+ props.initialValue ///jak potrzebujemy poprzednia wartosc to wywolujemy funkcje(return i td)
             })
         })
     }
@@ -73,7 +61,7 @@ class Counter extends Component{
                 {/* <input type="number" /> */}
                 <div>Propsy={this.props.initialValue}</div>
                 <div>counterValue={this.state.counterValue}</div>
-                <Step/>
+                <Step setStepValue={this.updateStep}/>
                 <ButtonsPanel 
                 changeCounterValue={this.changeValue}
                 resetOrReinitCounter={this.resetCounter}/>

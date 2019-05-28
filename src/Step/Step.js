@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 
 class Step extends Component{
 
+    updateStep = () => {
+
+        let step = parseInt(this._inputStep.value);
+
+        this.props.setStepValue(step);
+    
+    }
+
+
+
     render (){
         return (
             <div className='input-step'>

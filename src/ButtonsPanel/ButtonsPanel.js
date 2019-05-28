@@ -10,7 +10,7 @@ class ButtonsPanel extends Component{
     render (){
         return (
             <div className='buttons-panel'>
-            <button onClick={this.props.changeCounterValue}>Add 1</button>
+            <button onClick={this.props.changeCounterValue}>Add X</button>
             <button onClick={()=>this.resetOrReinitCounter(false)}>Reinit</button>
             <button onClick={()=>this.resetOrReinitCounter(true)}>Reset</button>
             </div>
